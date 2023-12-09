@@ -1,4 +1,5 @@
 #include "simple_shell.h"
+
 /**
  * custom_printf - This function emulates a simplified version
  * of the printf function.
