@@ -1,5 +1,4 @@
 #include "simple_shell.h"
-
 /**
  * main - Entry point
  * command: A character array to store the user input command,
