@@ -20,15 +20,14 @@ void execute_command(const char *command)
 	else if (child_pid == 0)
 	{
 		/* Child Process*/
+		char *argv[2];
 
-		char *args[] = {(char *)command, NULL}; /*cli argument*/
-		char *envp[] = {NULL}; /* Environment var for new program*/
+		argv[0] = (char *)command;
+		argv[1] = NULL;
 
-		if (execve(command, args, envp) == -1)
-		{
-			perror("execve");
-			exit(EXIT_FAILURE);
-		}
+		execve(command, argv, NULL);
+		perror("execve");
+		exit(EXIT_FAILURE);
 	}
 	else
 	{

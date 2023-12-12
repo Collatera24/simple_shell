@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 /**
  * display_prompt - Function that displays the customised prompt
@@ -10,5 +10,5 @@
 
 void display_prompt(void)
 {
-	custom_printf("kola && hammed_shell# ");
+	custom_printf("kola_hammed_shell#$ ");
 }
