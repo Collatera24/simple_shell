@@ -20,7 +20,7 @@ void read_command(char *command, size_t size)
 		}
 		else
 		{
-			custom_printf("Error input.\n");
+			custom_printf("Error reading input.\n");
 			exit(EXIT_FAILURE);
 		}
 	}
