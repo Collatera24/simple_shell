@@ -28,14 +28,14 @@ void read_command(char *command, size_t size)
 }
 
 /**
- * execute_command - Reads, interprets and tokenise commands
+ * token_command - Reads, interprets and tokenise commands
  * @command: Strings to be tokenised
  *
  * Return: 0
  * Author - Kolawole Tella and Hammed Yakub
  */
 
-void execute_command(const char *command)
+void token_command(const char *command)
 {
 	pid_t child_pid = fork();
 

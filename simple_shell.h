@@ -17,5 +17,6 @@ void display_prompt(void);
 void custom_printf(const char *format);
 void read_command(char *command, size_t size);
 void execute_command(const char *command);
+void token_command(const char *command);
 
 #endif /* SIMPLE_SHELL_H */
