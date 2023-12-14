@@ -41,7 +41,7 @@ void token_command(const char *command)
 
 	if (child_pid == -1)
 	{
-		custom_printf("Error message.\n");
+		perror("Error forking");
 		exit(EXIT_FAILURE);
 	}
 	else if (child_pid == 0)
@@ -63,11 +63,13 @@ void token_command(const char *command)
 		args[arg_count] = NULL;
 
 		/* Execute the command */
-		execve(args[0], args, NULL);
+		if (execve(args[0], args, NULL) == -1)
+		{
 
 		/* If execve fails, return an error message */
-		custom_printf("Error message.\n");
+		perror("Error executing command");
 		exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{

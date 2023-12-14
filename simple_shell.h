@@ -13,6 +13,8 @@
 #include <errno.h>
 #include <limits.h>
 
+#define MAX_COMMAND_LENGTH 100
+
 void display_prompt(void);
 void custom_printf(const char *format);
 void read_command(char *command, size_t size);
