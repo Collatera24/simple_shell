@@ -9,7 +9,7 @@
 int main(void)
 {
 	char command[105];
-	
+
 	while (1)
 	{
 		display_prompt();
