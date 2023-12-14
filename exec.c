@@ -1,4 +1,7 @@
 #include "simple_shell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
  * execute_command - Function that executes given commands
@@ -14,25 +17,21 @@ void execute_command(const char *command)
 
 	if (child_pid == -1)
 	{
-		perror("fork");
+		perror("Error forking process");
 		exit(EXIT_FAILURE);
 	}
-	else if (child_pid == 0)
-	{
-		/* Child Process*/
-		char *argv[2];
+	else if
+		(child_pid == 0)
+		{
+			execlp(command, command, (char *)NULL);
 
-		argv[0] = (char *)command;
-		argv[1] = NULL;
+			perror("Error executing command");
+			exit(EXIT_FAILURE);
 
-		execve(command, argv, NULL);
-		perror("execve");
-		exit(EXIT_FAILURE);
-	}
+		}
 	else
 	{
-		/* Parent process*/
-
 		wait(NULL);
 	}
 }
+
