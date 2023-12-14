@@ -9,26 +9,12 @@
 int main(void)
 {
 	char command[105];
-	size_t len;
 
 	while (1)
 	{
 		display_prompt();
-
-		if (fgets(command, sizeof(command), stdin) == NULL)
-		{
-			printf("\nExiting shell. Goodbye!\n");
-			break;
-		}
-
-		len = strlen(command);
-		if (len > 0 && command[len - 1] == '\n')
-		{
-			command[len - 1] = '\0';
-		}
-
+		read_command(command, sizeof(command));
 		execute_command(command);
 	}
-
 	return (0);
 }
