@@ -15,6 +15,7 @@
 
 #define MAX_COMMAND_LENGTH 100
 
+int main(void);
 void display_prompt(void);
 void custom_printf(const char *format);
 void read_command(char *command, size_t size);
