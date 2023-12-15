@@ -17,22 +17,18 @@ void execute_command(const char *command)
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-	else if (child_pid == 0)
-	{
-		/* Child Process*/
-		char *argv[2];
-
-		argv[0] = (char *)command;
-		argv[1] = NULL;
-
-		execve(command, argv, NULL);
-		perror("execve");
-		exit(EXIT_FAILURE);
-	}
+	else if
+		(child_pid == 0)
+		{
+			/* child process */
+			execlp(command, command, (char *)NULL);
+			perror("execlp");
+			exit(EXIT_FAILURE);
+		}
 	else
 	{
-		/* Parent process*/
-
+		/* Parent process */
 		wait(NULL);
 	}
 }
+
