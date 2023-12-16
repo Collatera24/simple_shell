@@ -6,7 +6,7 @@
  * AUTHOR - Kolawole Tella and Hammed Yakub
  */
 
-void display_prompt(void)
+void prompt(void)
 {
 	int _prompt;
 

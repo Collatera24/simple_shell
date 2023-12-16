@@ -8,7 +8,7 @@
  * AUTHOR - Kolawole Tella and Hammed Yakub
  */
 
-char *path_handler(const char *cmd)
+char *handle_path(const char *cmd)
 {
 	/* Function to handle path */
 	const char *path_var = "PATH";

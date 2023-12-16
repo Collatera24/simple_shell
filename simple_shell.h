@@ -40,7 +40,7 @@ void prompt(void);
 int str_count(char *av, char ***args);
 void _perror(const char *cmd, char *error_message);
 int print_error(char *str);
-char *handle_path(const char *command);
+char *handle_path(const char *cmd);
 char *_getenv(const char *str);
 void handle_signal(int sig);
 int main(int ac __attribute__((unused)), char **av __attribute__((unused)));
