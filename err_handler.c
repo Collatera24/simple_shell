@@ -10,13 +10,12 @@
 
 int print_error(char *str)
 {
-	if (str == NULL)
-		return (0);
-
 	int k = 0;
 
-	while (str[k] != '\0')
+	if (!(str))
+		return (0);
 
+	while (str[k])
 	{
 		write(STDERR_FILENO, &str[k], 1);
 		k++;
@@ -25,18 +24,16 @@ int print_error(char *str)
 }
 
 /**
- * out_perror - prints the error output to the stderr
+ * _perror - prints the error output to the stderr
  * @cmd: user command input
  * @error_message: the error message displayed
  */
 
-void out_perror(const char *cmd, char *error_message)
+void _perror(const char *cmd, char *error_message)
 {
-	if (cmd == NULL || error_message == NULL)
-		return;
 
-	char *program_title = _strdup((char *)cmd);
-	char *first_cmd = strtok(program_title, " \t\r\n");
+	char *program_name = _strdup((char *)cmd);
+	char *first_cmd = strtok(program_name, " \t\r\n");
 
 	print_error(_getenv("_"));
 	print_error(": 1: ");
@@ -44,5 +41,5 @@ void out_perror(const char *cmd, char *error_message)
 	print_error(": ");
 	print_error(error_message);
 	print_error("\n");
-	free(program_title);
+	free(program_name);
 }

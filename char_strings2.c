@@ -86,12 +86,12 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 /**
  * _strcpy - copy a string
  * @to: the destination string
- * @fro: the source string
+ * @from: the source string
  *
  * Return: the destination string
  */
 
-char *_strcpy(char *to, const char *fro)
+char *_strcpy(char *to, const char *from)
 {
 	int k = 0;
 
@@ -108,12 +108,12 @@ char *_strcpy(char *to, const char *fro)
 /**
  * _strcat - concatenate two strings
  * @to: the destination string
- * @fro: the source string
+ * @from: the source string
  *
  * Return: the destination string
  */
 
-char *_strcat(char *to, const char *fro)
+char *_strcat(char *to, const char *from)
 {
 	int to_len = 0, k = 0;
 

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 /**
  * exit_builtin - Handles the exit built-in
@@ -39,7 +39,7 @@ void exit_builtin(char *cmd, char *status)
 
 int _atoi(char *str)
 {
-	int result = 0. sign = 1, m = 0;
+	int result = 0, sign = 1, m = 0;
 
 	if (str[0] == '-')
 	{

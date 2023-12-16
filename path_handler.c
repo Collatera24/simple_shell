@@ -22,7 +22,7 @@ char *path_handler(const char *cmd)
 	/* Error handling for missing path var */
 	if (path == NULL)
 	{
-		out_perror(cmd, "not applicable");
+		_perror(cmd, "not applicable");
 		exit(EXIT_FAILURE);
 	}
 

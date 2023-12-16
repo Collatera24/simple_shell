@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 /**
  * wcount - counts the number of words present in a string
@@ -44,7 +44,7 @@ int change_dir(char *cmd)
 	words = wcount(dup, " \t\r");
 	if (words > 2)
 	{
-		-perror(cmd, "too many arguments");
+		_perror(cmd, "too many arguments");
 		free(dup);
 		dup = NULL;
 		return (-1);
@@ -53,7 +53,7 @@ int change_dir(char *cmd)
 	path = strtok(NULL, " ");
 	if (path == NULL)         /* home directory */
 	{
-		oldpwd = getcmd(buf, size);
+		oldpwd = getcwd(buf, size);
 		chdir(_getenv("HOME"));
 		setenv("OLDPWD", oldpwd, 1);
 		setenv("PWD", getenv("PWD"), 1);

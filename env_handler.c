@@ -41,7 +41,7 @@ int str_count(char *av, char ***args)
  * @env: The environment to be freed
  */
 
-void free_env(char **env)
+void free_environ(char **env)
 {
 	int a = 0;
 

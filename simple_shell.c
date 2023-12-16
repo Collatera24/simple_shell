@@ -48,7 +48,7 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 		cmd[characters - 1] = '\0';
 		if (_strlen(cmd) == 0 || _strspn(cmd, " \t\r\n") ==
 				(size_t)_strlen(cmd))
-			continue;
+				continue;
 		/* check for comments, handle_comment modifies cmd */
 		if (handle_comment(cmd) == NULL)
 		{
@@ -104,7 +104,7 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 }
 
 	/**
-	 * signal_handler - Handles signal for the SIGINT signal (Ctrl+C).
+	 * handle_signal - Handles signal for the SIGINT signal (Ctrl+C).
 	 * @sig: Holds the SIGINT signal.
 	 * Return: Returns nothing.
 	 */

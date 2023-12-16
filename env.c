@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple_shell.h"
 
 /**
  * create_node - It creates a new node to the array
@@ -58,7 +58,7 @@ void print_env(Node_env *head)
 	current = head;
 	while (current != NULL)
 	{
-		write(STDOUT, current->data, strlen(current->data));
+		write(STDOUT_FILENO, current->data, strlen(current->data));
 		write(STDOUT_FILENO, "\n", 1);
 
 		current = current->next;

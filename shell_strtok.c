@@ -21,7 +21,7 @@ char *_strtok(char *str, const char *delimeter)
 	while (buffer[m] != '\0')
 	{
 		is_found = 0;
-		for (n = 0; delimeter[j] != '\0'; n++)
+		for (n = 0; delimeter[n] != '\0'; n++)
 		{
 			if (buffer[m] == delimeter[n])
 			{

@@ -35,11 +35,12 @@ typedef struct Node_env
 
 /* Prototypes */
 
-void free_env(char **env);
+void free_environ(char **env);
+void prompt(void);
 int str_count(char *av, char ***args);
-void out_perror(const char *cmd, char *error_message);
+void _perror(const char *cmd, char *error_message);
 int print_error(char *str);
-char *path_handler(const char *cmd);
+char *handle_path(const char *command);
 char *_getenv(const char *str);
 void handle_signal(int sig);
 int main(int ac __attribute__((unused)), char **av __attribute__((unused)));
@@ -68,8 +69,8 @@ char *_strdup(char *str);
 size_t _strcspn(const char *str, const char *char_set);
 int _strcmp(const char *str1, const char *str2);
 int _strlen(const char *str);
-char *_strcat(char *to, const char *fro);
-char *_strcpy(char *to, const char *fro);
+char *_strcat(char *to, const char *from);
+char *_strcpy(char *to, const char *from);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_strchr(const char *str, int character);
 size_t _strspn(const char *str, const char *char_set);

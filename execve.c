@@ -45,12 +45,12 @@ char **split_string(const char *cmd)
 		exit(EXIT_FAILURE);
 	}
 	num_tokens = countArgs(copy_cmd);
-	av = (char **)malloc(size(char *) * (num_tokens + 1));
+	av = (char **)malloc(sizeof(char *) * (num_tokens + 1));
 	if (av == NULL)
 	{
 		perror("Allocating memory using malloc failed");
 		free(copy_cmd);
-		exit(EXIT_FAILYRE);
+		exit(EXIT_FAILURE);
 	}
 	token = strtok(copy_cmd, delimeters);
 	while (token)
@@ -83,7 +83,7 @@ char **split_string(const char *cmd)
 void execute_cmd(const char *cmd, char *const envp[])
 {
 	int status;
-	char **new_av = split string(cmd);
+	char **new_av = split_string(cmd);
 	pid_t pid;
 	char *path_cmd = NULL;
 
@@ -110,17 +110,17 @@ void execute_cmd(const char *cmd, char *const envp[])
 			free((void *)cmd);
 			exit(EXIT_FAILURE);
 		}
-		else if (execute(path_cmd, new_av, envp) == -1)
+		else if (execve(path_cmd, new_av, envp) == -1)
 		{
 			_perror(cmd, "not found");
-			free_now_av(new_av);
+			free_new_av(new_av);
 			free(path_cmd);
 			free((void *)cmd);
 			_exit(1);
 		}
 	}
 	else
-		waitpid(pid, $status, 0);
+		waitpid(pid, &status, 0);
 	free_new_av(new_av);
 	free(path_cmd);
 }
