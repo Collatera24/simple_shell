@@ -76,6 +76,7 @@ char **split_string(const char *cmd)
 /**
  * execute_cmd - For executing command
  * @cmd: The command to be executed
+ * @handle_path: for handling path
  * @envp: set to NULL
  * AUTHORS: kolawole Tella and Hammed Yakub
  * Return: Void
