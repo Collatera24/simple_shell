@@ -58,7 +58,7 @@ void print_env(Node_env *head)
 	current = head;
 	while (current != NULL)
 	{
-		write(STDOUT_FILENO, current->data, strlen(current->data));
+		write(STDOUT_FILENO, current->data, _strlen(current->data));
 		write(STDOUT_FILENO, "\n", 1);
 
 		current = current->next;
