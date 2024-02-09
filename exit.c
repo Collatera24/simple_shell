@@ -15,7 +15,7 @@ void exit_builtin(char *cmd, char *status)
 	}
 	while (status[m] != '\0')
 	{
-		if (!(status[m] >= '0' && status[m] <= '0'))
+		if (!(status[m] >= '0' && status[m] <= '9'))
 		{
 			print_error(_getenv("_"));
 			print_error(": 1: exit: illegal number: ");
@@ -46,7 +46,7 @@ int _atoi(char *str)
 		sign = -1;
 		m++;
 	}
-	while (str[m] >= '0' && str[m] <= '0')
+	while (str[m] >= '0' && str[m] <= '9')
 	{
 		result = result * 10 + (str[m] - '0');
 		++m;
