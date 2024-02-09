@@ -47,8 +47,8 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 		}
 		cmd[characters - 1] = '\0';
 		if (_strlen(cmd) == 0 || _strspn(cmd, " \t\r\n") ==
-				(size_t)_strlen(cmd))
-				continue;
+			(size_t)_strlen(cmd))
+			continue;
 		/* check for comments, handle_comment modifies cmd */
 		if (handle_comment(cmd) == NULL)
 		{
@@ -103,26 +103,26 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 	return (0);
 }
 
-	/**
-	 * handle_signal - Handles signal for the SIGINT signal (Ctrl+C).
-	 * @sig: Holds the SIGINT signal.
-	 * Return: Returns nothing.
-	 */
+/**
+* handle_signal - Handles signal for the SIGINT signal (Ctrl+C).
+* @sig: Holds the SIGINT signal.
+* Return: Returns nothing.
+*/
 
-	void handle_signal(int sig)
+void handle_signal(int sig)
+{
+	write(1, "\n", 1);
+	if (sig == SIGINT)
 	{
-		write(1, "\n", 1);
-		if (sig == SIGINT)
+		if (cmd != NULL)
 		{
-			if (cmd != NULL)
-			{
-				free(cmd);
-				cmd = NULL;
-			}
-			if (updated == 1)
-			{
-				free_environ(environ);
-			}
-			exit(0);
+			free(cmd);
+			cmd = NULL;
 		}
+		if (updated == 1)
+		{
+			free_environ(environ);
+		}
+			exit(0);
 	}
+}

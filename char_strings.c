@@ -79,12 +79,12 @@ size_t _strcspn(const char *str, const char *char_set)
 
 char *_strdup(char *str)
 {
-	size_t len = _strlen(str) + 1;
-	char *new_str = malloc(len);
+	size_t length = _strlen(str) + 1;
+	char *new_str = malloc(length);
 
 	if (new_str == NULL)
 		return (NULL);
-	_memcpy(new_str, str, len);
+	_memcpy(new_str, str, length);
 
 	return (new_str);
 }

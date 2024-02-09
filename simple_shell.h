@@ -37,7 +37,7 @@ typedef struct Node_env
 
 void free_environ(char **env);
 void prompt(void);
-int str_count(char *av, char ***args);
+int word_count(char *av, char ***args);
 void _perror(const char *cmd, char *error_message);
 int print_error(char *str);
 char *handle_path(const char *cmd);
