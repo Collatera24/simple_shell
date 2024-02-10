@@ -8,7 +8,7 @@
 
 int countArgs(const char *cmd)
 {
-	char *token, *delimeters = " \n\t\r", *copy_cmd;
+	char *token, *delimiters = " \n\t\r", *copy_cmd;
 	int num_tokens = 0;
 
 	copy_cmd = _strdup((char *)cmd);
@@ -17,11 +17,11 @@ int countArgs(const char *cmd)
 		perror("Error duplicating command string");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(copy_cmd, delimeters);
+	token = strtok(copy_cmd, delimiters);
 	while (token)
 	{
 		num_tokens++;
-		token = strtok(NULL, delimeters);
+		token = strtok(NULL, delimiters);
 	}
 	free(copy_cmd);
 	return (num_tokens);
@@ -34,7 +34,7 @@ int countArgs(const char *cmd)
  */
 char **split_string(const char *cmd)
 {
-	char *token, *delimeters = " \n\t\r", *copy_cmd;
+	char *token, *delimiters = " \n\t\r", *copy_cmd;
 	char **av;
 	int m = 0, n, num_tokens;
 
@@ -52,7 +52,7 @@ char **split_string(const char *cmd)
 		free(copy_cmd);
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(copy_cmd, delimeters);
+	token = strtok(copy_cmd, delimiters);
 	while (token)
 	{
 		av[m] = strdup(token);
@@ -65,7 +65,7 @@ char **split_string(const char *cmd)
 			free(copy_cmd);
 			exit(EXIT_FAILURE);
 		}
-		token = strtok(NULL, delimeters);
+		token = strtok(NULL, delimiters);
 		m++;
 	}
 	av[m] = NULL;
@@ -76,9 +76,7 @@ char **split_string(const char *cmd)
 /**
  * execute_cmd - For executing command
  * @cmd: The command to be executed
- * @handle_path: for handling path
  * @envp: set to NULL
- * AUTHORS: kolawole Tella and Hammed Yakub
  * Return: Void
  */
 void execute_cmd(const char *cmd, char *const envp[])

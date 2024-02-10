@@ -43,7 +43,7 @@ int _strcmp(const char *str1, const char *str2)
 /**
  * _strcspn - Function to get length of a prefix substring
  * @str: The string
- * @char_set: The character set
+ * @charset: The character set
  *
  * Return: Returns length
  */

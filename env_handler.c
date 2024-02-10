@@ -29,7 +29,6 @@ int str_count(char *av, char ***args)
 
 	tokens[count] = NULL;
 	*args = tokens;
-
 	for (a = 0; a < count; a++)
 		free(tokens[a]);
 	free(tokens);
@@ -37,7 +36,7 @@ int str_count(char *av, char ***args)
 }
 
 /**
- * free_env - Frees the environment
+ * free_environ - Frees the environment
  * @env: The environment to be freed
  */
 
@@ -52,5 +51,3 @@ void free_environ(char **env)
 	}
 	free(env);
 }
-
-

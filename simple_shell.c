@@ -1,6 +1,6 @@
 #include "simple_shell.h"
 /**
- * display_prompt - Displays the shell's prompt
+ * prompt - Displays the shell's prompt
  *
  * Return: Always 0
  * AUTHOR - Kolawole Tella and Hammed Yakub
@@ -13,7 +13,7 @@ void prompt(void)
 	_prompt = write(STDOUT_FILENO, "$ ", 2); /* Display prompt */
 	if (_prompt == -1)
 	{
-		perror("Error message: ");
+		perror("Error: ");
 		exit(EXIT_FAILURE);
 	}
 }

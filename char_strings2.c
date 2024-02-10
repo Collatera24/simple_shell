@@ -4,7 +4,7 @@
  * _strspn - Gets the length of a prefix substring that consists
  * only of characters from a specified set.
  * @str: The string to be examined.
- * @char_set: The set of characters to match against.
+ * @charset: The set of characters to match against.
  *
  * Return: The length of the prefix substring consisting
  * of characters from @charset

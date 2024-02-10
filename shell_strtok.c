@@ -3,11 +3,11 @@
 /**
  * _strtok - used for tokenization
  * @str: string to be tokenized
- * @delimeter: Delimeters to check
+ * @delimiter: Delimiters to check
  * Return: Tokenized string
  */
 
-char *_strtok(char *str, const char *delimeter)
+char *_strtok(char *str, const char *delimiter)
 {
 	static char *buffer;
 	char *token;
@@ -21,9 +21,9 @@ char *_strtok(char *str, const char *delimeter)
 	while (buffer[m] != '\0')
 	{
 		is_found = 0;
-		for (n = 0; delimeter[n] != '\0'; n++)
+		for (n = 0; delimiter[n] != '\0'; n++)
 		{
-			if (buffer[m] == delimeter[n])
+			if (buffer[m] == delimiter[n])
 			{
 				is_found = 1;
 				break;

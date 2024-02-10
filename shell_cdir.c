@@ -23,6 +23,7 @@ int wcount(char *str, char *delim)
 	strtok(dup, delim);
 	for (count = 1; strtok(NULL, delim) != NULL; count++)
 		;
+
 	return (count);
 }
 
