@@ -7,18 +7,18 @@
  * @char_set: The set of characters to match against.
  *
  * Return: The length of the prefix substring consisting
- * of characters from @char_set
+ * of characters from @charset
  * AUTHOR- Kolawole Tella and Hammed Yakub
  */
 
-size_t _strspn(const char *str, const char *char_set)
+size_t _strspn(const char *str, const char *charset)
 {
 	size_t k = 0;
 	const char *ptr;
 
 	while (*str)
 	{
-		ptr = char_set;
+		ptr = charset;
 		while (*ptr)
 		{
 			if (*str == *ptr)

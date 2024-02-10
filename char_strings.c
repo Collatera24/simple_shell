@@ -48,10 +48,10 @@ int _strcmp(const char *str1, const char *str2)
  * Return: Returns length
  */
 
-size_t _strcspn(const char *str, const char *char_set)
+size_t _strcspn(const char *str, const char *charset)
 {
 	size_t len = 0;
-	const char *ptr = str, *char_ptr = char_set;
+	const char *ptr = str, *char_ptr = charset;
 
 	while (*ptr != '\0')
 	{

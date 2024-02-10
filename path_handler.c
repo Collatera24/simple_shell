@@ -1,7 +1,7 @@
 #include "simple_shell.h"
 
 /**
- * path_handler - Handles the PATH environ var to find the command.
+ * handle_path - Handles the PATH environ var to find the command.
  * @cmd: The command to check if it's in the PATH environ.
  *
  * Return: The full PATH if found; otherwise, NULL.
@@ -11,10 +11,9 @@
 char *handle_path(const char *cmd)
 {
 	/* Function to handle path */
-	const char *path_var = "PATH";
-	const char *delimiter = ":";
-	char *path = _getenv(path_var);
-	char *path_copy = NULL, *path_token;
+	const char *var = "PATH";
+	const char *delim = ":";
+	char *path = _getenv(var), *path_copy = NULL, *path_token;
 	char *file_path = NULL;
 	size_t cmd_len = _strlen(cmd), dir_len;
 	struct stat check_path;
@@ -22,7 +21,7 @@ char *handle_path(const char *cmd)
 	/* Error handling for missing path var */
 	if (path == NULL)
 	{
-		_perror(cmd, "not applicable");
+		_perror(cmd, "not found");
 		exit(EXIT_FAILURE);
 	}
 
@@ -35,24 +34,21 @@ char *handle_path(const char *cmd)
 	}
 
 	/*Tokenise path copy */
-	path_token = strtok(path_copy, delimiter);
+	path_token = strtok(path_copy, delim);
 
 	/* Iterate through path tokens */
 
 	while (path_token)
 	{
 		dir_len = _strlen(path_token);
-
 		if (dir_len + cmd_len + 2 <= MAX_PATH_LENGTH)
 		{
 			file_path = (char *)malloc(dir_len + cmd_len + 2);
-
 			if (file_path == NULL)
 			{
 				perror("malloc failed");
 				exit(EXIT_FAILURE);
 			}
-
 			_strcpy(file_path, path_token);
 			_strcat(file_path, "/");
 			_strcat(file_path, cmd);
@@ -69,11 +65,10 @@ char *handle_path(const char *cmd)
 		}
 
 		/*Move to the next path token*/
-		path_token = strtok(NULL, delimiter);
+		path_token = strtok(NULL, delim);
 	}
 
 	free(path_copy);
-
 	if (access(cmd, X_OK) == 0)
 		return ((char *)cmd);
 
@@ -90,20 +85,20 @@ char *handle_path(const char *cmd)
 char *_getenv(const char *str)
 {
 	char **env = environ;
-	char *find_equals;
+	char *find_equalto;
 	int len;
 
 	while (*env != NULL)
 	{
-		find_equals = _strchr(*env, '=');
+		find_equalto = _strchr(*env, '=');
 
-		if (find_equals != NULL)
+		if (find_equalto != NULL)
 		{
-			len = find_equals - *env;
+			len = find_equalto - *env;
 
 			if (_strncmp(str, *env, len) == 0)
 			{
-				return (find_equals + 1);
+				return (find_equalto + 1);
 			}
 		}
 

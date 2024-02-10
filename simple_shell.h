@@ -66,14 +66,14 @@ int countArgs(const char *cmd);
 
 void *_memcpy(void *dest, const void *src, size_t n);
 char *_strdup(char *str);
-size_t _strcspn(const char *str, const char *char_set);
+size_t _strcspn(const char *str, const char *charset);
 int _strcmp(const char *str1, const char *str2);
 int _strlen(const char *str);
 char *_strcat(char *to, const char *from);
 char *_strcpy(char *to, const char *from);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_strchr(const char *str, int character);
-size_t _strspn(const char *str, const char *char_set);
+size_t _strspn(const char *str, const char *charset);
 
 /* Macros */
 
